@@ -7,7 +7,7 @@ from collections import OrderedDict
 from utils import LOGGER
 
 router = APIRouter(prefix="/yt")
-YOUTUBE_API_KEY = "AIzaSyClox4nsUjqMT7cqKhaz7asQGeWe5E-1gE"
+YOUTUBE_API_KEY = "YOUR_API_KEY"
 YOUTUBE_SEARCH_API_URL = "https://www.googleapis.com/youtube/v3/search"
 YOUTUBE_VIDEOS_API_URL = "https://www.googleapis.com/youtube/v3/videos"
 
