@@ -1203,6 +1203,120 @@ header:hover svg path {
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
+	  <!-- /user/info Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/user/info</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves information about a Telegram user, bot, channel, or group, including ID, name, status, data center location, account age (for users), and member count (for chats).</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/user/info?username={username}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>username</code> (required, string): Telegram username, user ID, or link (e.g., "@ISmartCoder", "TheSmartDev", "t.me/TheSmartDev").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (User):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/user/info?username=ISmartCoder"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (User):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "type": "user",
+  "id": 123456789,
+  "first_name": "Abir",
+  "last_name": "Chawdhury",
+  "username": "@ISmartCoder",
+  "dc_id": 1,
+  "dc_location": "MIA, Miami, USA, US",
+  "is_premium": false,
+  "is_verified": false,
+  "is_bot": false,
+  "flags": "Clean",
+  "status": "Online",
+  "account_created": "August 01, 2018",
+  "account_age": "7 years, 0 months, 8 days",
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev",
+  "links": {
+    "android": "tg://openmessage?user_id=123456789",
+    "ios": "tg://user?id=123456789",
+    "permanent": "tg://user?id=123456789"
+  }
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Channel):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/user/info?username=TheSmartDev"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Channel):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "type": "channel",
+  "id": -100123456789,
+  "title": "TheSmartDev Updates",
+  "username": "@TheSmartDev",
+  "dc_id": 2,
+  "dc_location": "AMS, Amsterdam, Netherlands, NL",
+  "members_count": 1000,
+  "description": "Updates for A360API and other projects by @ISmartCoder",
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev",
+  "links": {
+    "join": "t.me/TheSmartDev",
+    "permanent": "t.me/TheSmartDev"
+  }
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/user/info?username=ISmartCoder" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /tgusers Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/tgusers</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves information about a Telegram bot's associated chats (groups/channels) and users, including bot info, chat details (ID, title, type, members count), and user details (ID, name, premium status).</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/tgusers?token={token}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>token</code> (required, string): Telegram bot token (e.g., "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/tgusers?token=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "bot_info": {
+    "first_name": "SmartBot",
+    "id": 123456789,
+    "username": "@SmartBot"
+  },
+  "chats": [
+    {
+      "id": -100123456789,
+      "members_count": 1000,
+      "title": "TheSmartDev Updates",
+      "type": "channel",
+      "username": "@TheSmartDev"
+    }
+  ],
+  "users": [
+    {
+      "id": 987654321,
+      "first_name": "Abir",
+      "last_name": "Chawdhury",
+      "username": "@ISmartCoder",
+      "is_premium": false
+    }
+  ],
+  "total_chats": 1,
+  "total_users": 1,
+  "processing_time": 5.123,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/tgusers?token=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
       <!-- /yt/search Endpoint -->
       <div class="endpoint-card">
         <h3 class="text-2xl font-bold stylish-text mb-4">/yt/search</h3>
