@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta name="description" content="A360 API: The ultimate API toolkit for developers, offering tools for media downloading, translation, coupon scraping, P2P trading, and more. Explore our comprehensive API documentation.">
   <meta name="keywords" content="A360 API, API, media downloader, translation, coupons, P2P trading, Instagram, YouTube, Facebook, Binance, Python, FastAPI">
   <meta name="author" content="Abir Arafat Chawdhury (@ISmartCoder)">
@@ -11,122 +11,197 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Roboto Mono', monospace;
-      color: #1f2937;
-      overflow-x: hidden;
-      margin: 0;
-      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-    }
-    #three-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.7;
-    }
+<style>
+  body {
+    font-family: 'Roboto Mono', monospace;
+    color: #1f2937;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    background: linear-gradient(135deg, #f9fafb, #d1d5db);
+  }
+  #three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    will-change: transform;
+  }
+  .section-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    margin: 0.5rem auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 95vw;
+  }
+  @media (min-width: 640px) {
     .section-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border-radius: 1.5rem;
       padding: 1.5rem;
       margin: 1rem auto;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      max-width: 80vw;
     }
     .section-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
-    @media (min-width: 640px) {
-      .section-card {
-        padding: 2.5rem;
-        margin: 2rem auto;
+  }
+  .logo {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    width: 24vw;
+    height: 24vw;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .logo {
+      width: 32vw;
+      height: 32vw;
+      max-width: 140px;
+      max-height: 140px;
+    }
+    @media (min-width: 768px) {
+      .logo {
+        max-width: 180px;
+        max-height: 180px;
       }
     }
-    .logo {
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #3b82f6;
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    }
-    .glow {
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5);
-    }
-    .stylish-text {
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 1px;
-    }
+  }
+  .glow {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.6), 0 0 16px rgba(59, 130, 246, 0.4);
+  }
+  .stylish-text {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .btn-glow {
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+  }
+  @media (min-width: 640px) {
     .btn-glow {
-      background: linear-gradient(90deg, #3b82f6, #9333ea);
-      color: #ffffff;
-      transition: all 0.3s ease;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
     }
     .btn-glow:hover {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
-      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+      transform: scale(1.05);
     }
+  }
+  .endpoint-card {
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    border: 1px solid #3b82f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    max-width: 95vw;
+  }
+  @media (min-width: 640px) {
     .endpoint-card {
-      background: linear-gradient(135deg, #ffffff, #e5e7eb);
-      border: 1px solid #3b82f6;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 1.5rem;
-      border-radius: 1rem;
+      padding: 1.25rem;
+      max-width: 80vw;
     }
     .endpoint-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(59, 130, 246, 0.2);
     }
+  }
+  .code-block {
+    background: #1f2937;
+    color: #f3f4f6;
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  @media (min-width: 640px) {
     .code-block {
-      background: #1f2937;
-      color: #f3f4f6;
-      font-family: 'Roboto Mono', monospace;
       padding: 1rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
       font-size: 0.9rem;
     }
+  }
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  @media (min-width: 640px) {
     .status-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: bold;
+      font-size: 1rem;
     }
-    .status-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #10b981;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.7; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+  }
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #10b981;
+    animation: pulse 2.5s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .project-card {
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    border: 1px solid #3b82f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    max-width: 95vw;
+  }
+  @media (min-width: 640px) {
     .project-card {
-      background: linear-gradient(135deg, #ffffff, #e5e7eb);
-      border: 1px solid #3b82f6;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      text-align: center;
+      padding: 1.25rem;
+      max-width: 80vw;
     }
     .project-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(59, 130, 246, 0.2);
     }
-    @media (min-width: 640px) {
-      .project-card {
-        padding: 2rem;
-      }
+  }
+  header {
+    padding: 1rem 0.5rem;
+  }
+  @media (min-width: 640px) {
+    header {
+      padding: 2rem 1rem;
     }
-  </style>
+  }
+  .welcome-message {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  @media (min-width: 640px) {
+    .welcome-message {
+      font-size: 1rem;
+      max-width: 80vw;
+    }
+  }
+</style>
 </head>
 <body class="min-h-screen flex flex-col">
   <canvas id="three-canvas"></canvas>
@@ -134,7 +209,7 @@
   <header class="text-center py-6 sm:py-12">
     <img src="https://i.ibb.co.com/cXKbHb7K/photo-2025-08-09-10-06-41.jpg" alt="A360 API Logo" class="mx-auto w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 logo">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 sm:mt-6 glow stylish-text">A360 API</h1>
-    <p class="text-lg sm:text-xl mt-2 sm:mt-3 max-w-2xl mx-auto tracking-wide stylish-text">The Ultimate API Toolkit: Empowering developers with tools for media downloading, translation, coupon scraping, P2P trading, and more. Built with passion by @ISmartCoder.</p>
+    <p class="welcome-message mt-2 sm:mt-3 tracking-wide stylish-text">The Ultimate API Toolkit: Empowering developers with tools for media downloading, translation, coupon scraping, P2P trading, and more. Built with passion by @ISmartCoder.</p>
     <div class="status-indicator mt-4 text-lg sm:text-xl stylish-text">
       <span class="status-dot"></span> API Status: Online
     </div>
