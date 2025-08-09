@@ -861,6 +861,243 @@
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
+	  <!-- /net/chk Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/net/chk</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves information about an IP address, including ASN, ISP, country, city, and timezone, using the ipinfo.io API.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/net/chk?ip={ip}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>ip</code> (required, string): IP address to check (e.g., "8.8.8.8").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/net/chk?ip=8.8.8.8"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "ip": "8.8.8.8",
+    "asn": "AS15169 Google LLC",
+    "isp": "AS15169 Google LLC",
+    "country": "US",
+    "city": "Mountain View",
+    "timezone": "America/Los_Angeles",
+    "fraud_score": 0,
+    "risk_level": "low"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/net/chk?ip=8.8.8.8" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /net/px Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/net/px</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Checks the status, anonymity level, and location of a proxy using httpbin.org and ipinfo.io APIs. Supports HTTP/HTTPS proxies with optional authentication.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/net/px?proxy={proxy}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>proxy</code> (required, string): Proxy address in format <code>ip:port</code> or <code>ip:port:user:pass</code> for authenticated proxies, or <code>protocol://ip:port</code> (e.g., "192.168.1.1:8080", "192.168.1.1:8080:user:pass", "http://192.168.1.1:8080").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/net/px?proxy=192.168.1.1:8080"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "proxy": "192.168.1.1:8080",
+    "status": "Live",
+    "location": "California (US)",
+    "anonymity": "Elite",
+    "ip": "192.168.1.1"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/net/px?proxy=192.168.1.1:8080" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+	  <!-- /sk/chk Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/sk/chk</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Verifies if a Stripe API key is live or dead by checking access to the Stripe account endpoint.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/sk/chk?key={stripeKey}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>key</code> (required, string): Stripe API key to verify (e.g., "sk_test_123456789").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/sk/chk?key=sk_test_123456789"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "status": "Live"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/sk/chk?key=sk_test_123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /sk/info Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/sk/info</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves detailed information about a Stripe account associated with the provided API key, including ID, email, country, business name, type, payouts enabled, and details submitted.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/sk/info?key={stripeKey}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>key</code> (required, string): Stripe API key to retrieve information for (e.g., "sk_test_123456789").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/sk/info?key=sk_test_123456789"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "id": "acct_1A2B3C4D5E6F7G8H",
+    "email": "example@stripe.com",
+    "country": "US",
+    "business_name": "Example Business",
+    "type": "standard",
+    "payouts_enabled": true,
+    "details_submitted": true
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/sk/info?key=sk_test_123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /sk/time Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/sk/time</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves the current time, date, day, and timezone for a specified country, using country code (e.g., "BD") or name (e.g., "Bangladesh").</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/sk/time?country={country}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>country</code> (required, string): Country code (e.g., "BD") or name (e.g., "Bangladesh").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/sk/time?country=BD"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "country_name": "Bangladesh",
+    "country_code": "BD",
+    "time": "03:36:00 PM",
+    "date": "09 Aug, 2025",
+    "day": "Saturday",
+    "timezone": "Asia/Dhaka",
+    "flag": "BD"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/sk/time?country=BD" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+	  <!-- /tmail/gen Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/tmail/gen</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Generates a temporary email account using the mail.tm API. Supports custom username and password or generates random credentials if not provided.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/tmail/gen?username={username}&password={password}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>username</code> (optional, string): Desired username for the email (e.g., "testuser"). If not provided, a random username is generated.</li>
+          <li><code>password</code> (optional, string): Desired password for the email (e.g., "Test1234"). If not provided, a random password is generated.</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Custom Credentials):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/tmail/gen?username=testuser&password=Test1234"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Custom Credentials):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "email": "testuser@moakt.cc",
+    "password": "Test1234",
+    "token": "xyz123",
+    "short_id": "a1b2c3d4e5"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Random Credentials):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/tmail/gen"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Random Credentials):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "email": "randomxyz@moakt.cc",
+    "password": "Ab12Cd34Ef56",
+    "token": "abc789",
+    "short_id": "f6g7h8i9j0"
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/tmail/gen" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /tmail/cmail Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/tmail/cmail</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves up to 10 email messages from a temporary email account using a mail.tm token. Returns message details including sender, subject, and content.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/tmail/cmail?token={token}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>token</code> (required, string): mail.tm token for the temporary email account (e.g., "xyz123").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/tmail/cmail?token=xyz123"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "id": "msg123",
+      "from": "sender@example.com",
+      "subject": "Welcome to Our Service",
+      "content": "Thank you for signing up! Click here [https://example.com] to verify your account."
+    }
+  ],
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/tmail/cmail?token=xyz123" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
       <!-- /yt/dl Endpoint -->
       <div class="endpoint-card">
         <h3 class="text-2xl font-bold stylish-text mb-4">/yt/dl</h3>
