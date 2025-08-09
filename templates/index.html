@@ -176,7 +176,7 @@
           <li><code>amount</code> (optional, integer): Number of cards to generate (1-2000, default 10).</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/ccgen?bin=515462&amount=2"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/ccgen?bin=515462&amount=2"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -194,7 +194,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/ccgen?bin=515462&amount=2" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/ccgen?bin=515462&amount=2" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -210,7 +210,7 @@
           <li><code>amount</code> (optional, integer): Number of addresses to generate (default 1).</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/fake/address?code=BD&amount=1"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/fake/address?code=BD&amount=1"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -226,7 +226,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/fake/address?code=BD&amount=1" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/fake/address?code=BD&amount=1" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -238,7 +238,7 @@
         <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/fake/countries</code></p>
         <p class="text-base stylish-text mb-2"><strong>Parameters:</strong> None</p>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/fake/countries"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/fake/countries"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -251,7 +251,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/fake/countries" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/fake/countries" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -269,7 +269,7 @@
           <li><code>amount</code> (optional, integer): Number of BINs to return for country/bank searches (default 1000).</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request (Single BIN):</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/bindb/bin?num=515462"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/bindb/bin?num=515462"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response (Single BIN):</strong></p>
         <pre class="code-block"><code>
 {
@@ -283,7 +283,7 @@
 }
         </code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Request (Country Search):</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/bindb/bin?country=BD&amount=2"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/bindb/bin?country=BD&amount=2"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response (Country Search):</strong></p>
         <pre class="code-block"><code>
 {
@@ -296,7 +296,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/bindb/bin?num=515462" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/bindb/bin?num=515462" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -311,7 +311,7 @@
           <li><code>query</code> (required, string): Name of the Python package (e.g., "smartfaker").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/pypi?query=smartfaker"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/pypi?query=smartfaker"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -331,7 +331,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/pypi?query=smartfaker" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/pypi?query=smartfaker" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -346,7 +346,7 @@
           <li><code>username</code> (required, string): GitHub username (e.g., "abirxdhack").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/git/user?username=abirxdhack"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/git/user?username=abirxdhack"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 [
@@ -362,7 +362,7 @@
   }
 ]
         </code></pre>
-        <a href="http://192.168.16.100:8000/git/user?username=abirxdhack" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/git/user?username=abirxdhack" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -377,7 +377,7 @@
           <li><code>name</code> (required, string): Country name (e.g., "Bangladesh").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/country?name=Bangladesh"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/country?name=Bangladesh"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 [
@@ -397,7 +397,7 @@
   }
 ]
         </code></pre>
-        <a href="http://192.168.16.100:8000/country?name=Bangladesh" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/country?name=Bangladesh" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -412,7 +412,7 @@
           <li><code>content</code> (required, string): Sentence to check (e.g., "I has a cat").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/eng/gmr?content=I%20has%20a%20cat"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/eng/gmr?content=I%20has%20a%20cat"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -421,7 +421,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/eng/gmr?content=I%20has%20a%20cat" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/eng/gmr?content=I%20has%20a%20cat" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -436,7 +436,7 @@
           <li><code>word</code> (required, string): Word to check (e.g., "recieve").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/eng/spl?word=recieve"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/eng/spl?word=recieve"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -445,7 +445,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/eng/spl?word=recieve" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/eng/spl?word=recieve" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -460,7 +460,7 @@
           <li><code>word</code> (required, string): Word to lookup (e.g., "cat").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/eng/prn?word=cat"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/eng/prn?word=cat"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -477,7 +477,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/eng/prn?word=cat" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/eng/prn?word=cat" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -492,7 +492,7 @@
           <li><code>word</code> (required, string): Word to find synonyms for (e.g., "big").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/eng/syn?word=big"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/eng/syn?word=big"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -501,7 +501,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/eng/syn?word=big" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/eng/syn?word=big" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -516,7 +516,7 @@
           <li><code>word</code> (required, string): Word to find antonyms for (e.g., "big").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/eng/ant?word=big"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/eng/ant?word=big"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -525,7 +525,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/eng/ant?word=big" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/eng/ant?word=big" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -549,7 +549,7 @@
           <li><code>online_only</code> (optional, boolean): Show only online merchants (true/false). Default: false.</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/p2p?asset=USDT&pay_type=BDT&pay_method=BKASH&trade_type=SELL&limit=2"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/p2p?asset=USDT&pay_type=BDT&pay_method=BKASH&trade_type=SELL&limit=2"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -597,7 +597,7 @@
   "cache_status": "served"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/p2p?asset=USDT&pay_type=BDT&pay_method=BKASH&trade_type=SELL&limit=2" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/p2p?asset=USDT&pay_type=BDT&pay_method=BKASH&trade_type=SELL&limit=2" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -609,7 +609,7 @@
         <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/p2p/methods</code></p>
         <p class="text-base stylish-text mb-2"><strong>Parameters:</strong> None</p>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/p2p/methods"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/p2p/methods"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -623,7 +623,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/p2p/methods" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/p2p/methods" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -635,7 +635,7 @@
         <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/p2p/currencies</code></p>
         <p class="text-base stylish-text mb-2"><strong>Parameters:</strong> None</p>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/p2p/currencies"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/p2p/currencies"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -652,7 +652,137 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/p2p/currencies" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/p2p/currencies" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+	  <!-- /binance/24h Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/binance/24h</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves 24-hour ticker data for all trading pairs from the Binance API, including price changes, volumes, and more.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/binance/24h</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong> None</p>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/24h"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "LTCUSDT",
+      "priceChange": "5.34000000",
+      "priceChangePercent": "4.453",
+      "weightedAvgPrice": "123.35641919",
+      "prevClosePrice": "119.93000000",
+      "lastPrice": "125.27000000",
+      "lastQty": "0.71000000",
+      "bidPrice": "125.26000000",
+      "bidQty": "18.22400000",
+      "askPrice": "125.27000000",
+      "askQty": "177.25400000",
+      "openPrice": "119.93000000",
+      "highPrice": "126.42000000",
+      "lowPrice": "119.84000000",
+      "volume": "650599.44500000",
+      "quoteVolume": "80255617.86509000",
+      "openTime": 1754633791009,
+      "closeTime": 1754720191009,
+      "firstId": 490674123,
+      "lastId": 491212869,
+      "count": 538747
+    },
+    ...
+  ],
+  "count": 1234,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/binance/24h" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /binance/price Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/binance/price</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves 24-hour ticker data for a specific cryptocurrency trading pair (e.g., LTCUSDT) from the Binance API.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/binance/price?token={token}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>token</code> (required, string): Cryptocurrency token symbol (e.g., "LTC"). Appended with "USDT" to form the trading pair (e.g., "LTCUSDT").</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/price?token=LTC"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "symbol": "LTCUSDT",
+    "priceChange": "5.34000000",
+    "priceChangePercent": "4.453",
+    "weightedAvgPrice": "123.35641919",
+    "prevClosePrice": "119.93000000",
+    "lastPrice": "125.27000000",
+    "lastQty": "0.71000000",
+    "bidPrice": "125.26000000",
+    "bidQty": "18.22400000",
+    "askPrice": "125.27000000",
+    "askQty": "177.25400000",
+    "openPrice": "119.93000000",
+    "highPrice": "126.42000000",
+    "lowPrice": "119.84000000",
+    "volume": "650599.44500000",
+    "quoteVolume": "80255617.86509000",
+    "openTime": 1754633791009,
+    "closeTime": 1754720191009,
+    "firstId": 490674123,
+    "lastId": 491212869,
+    "count": 538747
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/binance/price?token=LTC" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /binance/cx Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/binance/cx</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Converts a specified amount of one cryptocurrency (base) to another (target) using Binance's spot price API. Supports direct and inverse trading pairs.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/binance/cx?base={base}&target={targetcoin}&amount={amount}</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>base</code> (required, string): Base cryptocurrency symbol (e.g., "TON").</li>
+          <li><code>target</code> (required, string): Target cryptocurrency symbol (e.g., "USDT").</li>
+          <li><code>amount</code> (optional, float): Amount of base coin to convert (default: 1.0, must be > 0).</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/cx?base=TON&target=USDT&amount=10"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": {
+    "base_coin": "TON",
+    "target_coin": "USDT",
+    "amount": 10.0,
+    "converted_amount": 50.1234,
+    "total_in_usdt": 50.1234,
+    "base_usdt_price": 5.01234,
+    "target_usdt_price": 1.0
+  },
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/binance/cx?base=TON&target=USDT&amount=10" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -667,7 +797,7 @@
           <li><code>url</code> (required, string): YouTube video URL (e.g., "https://www.youtube.com/watch?v=dQw4w9WgXcQ").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/yt/dl?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/yt/dl?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -685,7 +815,7 @@
   "comments": "500000"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/yt/dl?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/yt/dl?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -700,7 +830,7 @@
           <li><code>query</code> (required, string): Search term (e.g., "python tutorial").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/yt/search?query=python+tutorial"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/yt/search?query=python+tutorial"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -720,7 +850,7 @@
   ]
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/yt/search?query=python+tutorial" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/yt/search?query=python+tutorial" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -735,7 +865,7 @@
           <li><code>url</code> (required, string): Public Facebook video URL.</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/fb/dl?url=https://www.facebook.com/video/123456789"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/fb/dl?url=https://www.facebook.com/video/123456789"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -749,7 +879,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/fb/dl?url=https://www.facebook.com/video/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/fb/dl?url=https://www.facebook.com/video/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -764,7 +894,7 @@
           <li><code>site</code> (required, string): Store slug or URL (e.g., "amazon").</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/cpn?site=amazon"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/cpn?site=amazon"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -780,7 +910,7 @@
   ]
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/cpn?site=amazon" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/cpn?site=amazon" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -795,7 +925,7 @@
           <li><code>url</code> (required, string): Threads video URL.</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/thrd/dl?url=https://www.threads.net/post/123456789"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/thrd/dl?url=https://www.threads.net/post/123456789"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -811,7 +941,7 @@
   "server_response_time": "0.12s"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/thrd/dl?url=https://www.threads.net/post/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/thrd/dl?url=https://www.threads.net/post/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -826,7 +956,7 @@
           <li><code>url</code> (required, string): Pinterest pin URL.</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/pnt/dl?url=https://www.pinterest.com/pin/123456789"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/pnt/dl?url=https://www.pinterest.com/pin/123456789"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -844,7 +974,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/pnt/dl?url=https://www.pinterest.com/pin/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/pnt/dl?url=https://www.pinterest.com/pin/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -859,7 +989,7 @@
           <li><code>url</code> (required, string): Instagram post, reel, or carousel URL.</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/insta/dl?url=https://www.instagram.com/p/123456789"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/insta/dl?url=https://www.instagram.com/p/123456789"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -877,7 +1007,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/insta/dl?url=https://www.instagram.com/p/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/insta/dl?url=https://www.instagram.com/p/123456789" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -893,7 +1023,7 @@
           <li><code>lang</code> (optional, string): ISO 639-1 language code (e.g., "es"). Default: "en".</li>
         </ul>
         <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
-        <pre class="code-block"><code>curl -X GET "http://192.168.16.100:8000/tr?text=Hello&lang=es"</code></pre>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/tr?text=Hello&lang=es"</code></pre>
         <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
         <pre class="code-block"><code>
 {
@@ -902,7 +1032,7 @@
   "api_updates": "t.me/TheSmartDev"
 }
         </code></pre>
-        <a href="http://192.168.16.100:8000/tr?text=Hello&lang=es" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+        <a href="http://104.248.148.11:8000/tr?text=Hello&lang=es" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
