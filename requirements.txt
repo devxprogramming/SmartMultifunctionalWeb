@@ -1,3 +1,7 @@
+pyrofork
+tgcyrpto
+telethon 
+cyrptg
 fastapi
 uvicorn
 asyncio
