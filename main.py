@@ -1,3 +1,5 @@
+#Copyright @ISmartCoder
+#Updates Channel t.me/TheSmartDev
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 import os
@@ -109,9 +111,9 @@ if __name__ == "__main__":
     host = "0.0.0.0"
     port = int(os.getenv("PORT", 8000))
     LOGGER.info(f"Starting server at {get_server_address()}")
-    # Pass the app as an import string so workers/reload work properly
+
     uvicorn.run(
-        "main:app",  # replace 'main' with your filename (without .py) if different
+        "main:app", 
         host=host,
         port=port,
         reload=os.getenv("RELOAD", "false").lower() == "true"
