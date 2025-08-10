@@ -306,7 +306,7 @@ header:hover svg path {
   <!-- API Documentation Section -->
   <section id="api-docs" class="section-card max-w-5xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-6 sm:mb-8 glow stylish-text">API Documentation</h2>
-    <p class="text-base sm:text-lg stylish-text mb-6">Explore all 15 endpoints of A360 API below. Each endpoint is detailed with its purpose, parameters, example requests, and sample responses. Click the "Try It" buttons to test endpoints directly or use the provided curl commands.</p>
+    <p class="text-base sm:text-lg stylish-text mb-6">Explore all 47 endpoints of A360 API below. Each endpoint is detailed with its purpose, parameters, example requests, and sample responses. Click the "Try It" buttons to test endpoints directly or use the provided curl commands.</p>
     <div class="space-y-8">
       <!-- /ccgen Endpoint -->
       <div class="endpoint-card">
@@ -803,7 +803,7 @@ header:hover svg path {
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
-	  <!-- /binance/24h Endpoint -->
+<!-- /binance/24h Endpoint -->
       <div class="endpoint-card">
         <h3 class="text-2xl font-bold stylish-text mb-4">/binance/24h</h3>
         <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves 24-hour ticker data for all trading pairs from the Binance API, including price changes, volumes, and more.</p>
@@ -930,6 +930,162 @@ header:hover svg path {
 }
         </code></pre>
         <a href="http://104.248.148.11:8000/binance/cx?base=TON&target=USDT&amount=10" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+<!-- /binance/gainers Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/binance/gainers</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves the top cryptocurrencies with the highest 24-hour price change percentage from the Binance API. Returns up to 100 results by default, with an optional custom amount.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/binance/gainers</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>amount</code> (optional, integer): Number of top gainers to return (default: 100, max: 1000, must be > 0).</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Default 100 Results):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/gainers"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Default 100 Results):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "BTCUSDT",
+      "priceChangePercent": "5.432",
+      "lastPrice": "60000.00",
+      "highPrice": "61000.00",
+      "lowPrice": "57000.00",
+      "volume": "1000.00",
+      "quoteVolume": "60000000.00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "priceChangePercent": "4.876",
+      "lastPrice": "2500.00",
+      "highPrice": "2600.00",
+      "lowPrice": "2400.00",
+      "volume": "2000.00",
+      "quoteVolume": "5000000.00"
+    },
+    ...
+  ],
+  "count": 100,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Custom 200 Results):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/gainers?amount=200"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Custom 200 Results):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "BTCUSDT",
+      "priceChangePercent": "5.432",
+      "lastPrice": "60000.00",
+      "highPrice": "61000.00",
+      "lowPrice": "57000.00",
+      "volume": "1000.00",
+      "quoteVolume": "60000000.00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "priceChangePercent": "4.876",
+      "lastPrice": "2500.00",
+      "highPrice": "2600.00",
+      "lowPrice": "2400.00",
+      "volume": "2000.00",
+      "quoteVolume": "5000000.00"
+    },
+    ...
+  ],
+  "count": 200,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/binance/gainers" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It
+        </a>
+      </div>
+      <!-- /binance/losers Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/binance/losers</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Retrieves the top cryptocurrencies with the lowest 24-hour price change percentage from the Binance API. Returns up to 100 results by default, with an optional custom amount.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> GET</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/binance/losers</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Parameters:</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>amount</code> (optional, integer): Number of top losers to return (default: 100, max: 1000, must be > 0).</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Default 100 Results):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/losers"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Default 100 Results):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "XRPUSDT",
+      "priceChangePercent": "-4.123",
+      "lastPrice": "0.50",
+      "highPrice": "0.55",
+      "lowPrice": "0.48",
+      "volume": "1000000.00",
+      "quoteVolume": "500000.00"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "priceChangePercent": "-3.987",
+      "lastPrice": "0.35",
+      "highPrice": "0.38",
+      "lowPrice": "0.34",
+      "volume": "2000000.00",
+      "quoteVolume": "700000.00"
+    },
+    ...
+  ],
+  "count": 100,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Request (Custom 200 Results):</strong></p>
+        <pre class="code-block"><code>curl -X GET "http://104.248.148.11:8000/binance/losers?amount=200"</code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response (Custom 200 Results):</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "XRPUSDT",
+      "priceChangePercent": "-4.123",
+      "lastPrice": "0.50",
+      "highPrice": "0.55",
+      "lowPrice": "0.48",
+      "volume": "1000000.00",
+      "quoteVolume": "500000.00"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "priceChangePercent": "-3.987",
+      "lastPrice": "0.35",
+      "highPrice": "0.38",
+      "lowPrice": "0.34",
+      "volume": "2000000.00",
+      "quoteVolume": "700000.00"
+    },
+    ...
+  ],
+  "count": 200,
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <a href="http://104.248.148.11:8000/binance/losers" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
@@ -1317,6 +1473,69 @@ header:hover svg path {
           <i class="fas fa-play mr-2"></i> Try It
         </a>
       </div>
+	  <!-- /imgai/analysis Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/imgai/analysis</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Analyzes a base64-encoded image using the Google Gemini API, providing a description based on a specified prompt.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> POST</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/imgai/analysis</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Body Parameters (JSON):</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>code</code> (required, string): Base64-encoded image data.</li>
+          <li><code>mimeType</code> (optional, string): Image MIME type (e.g., "image/jpeg", "image/png"). Default: "image/jpeg".</li>
+          <li><code>prompt</code> (optional, string): Analysis prompt. Default: "Describe The Image Properly".</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>
+curl -X POST "http://104.248.148.11:8000/imgai/analysis" \
+     -H "Content-Type: application/json" \
+     -d '{"code": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "mimeType": "image/png", "prompt": "Describe this image"}'
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "analysis": "The image is a single-pixel red image (1x1 pixel).",
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Note:</strong> The example uses a 1x1 pixel image for brevity. To test with a real image, encode it to base64 using a tool like <code>base64</code> command or an online encoder.</p>
+        <a href="http://104.248.148.11:8000/docs" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It (via API Docs)
+        </a>
+      </div>
+      <!-- /imgai/ocr Endpoint -->
+      <div class="endpoint-card">
+        <h3 class="text-2xl font-bold stylish-text mb-4">/imgai/ocr</h3>
+        <p class="text-base stylish-text mb-2"><strong>Description:</strong> Extracts all visible text from a base64-encoded image in any language using the Google Gemini API.</p>
+        <p class="text-base stylish-text mb-2"><strong>Method:</strong> POST</p>
+        <p class="text-base stylish-text mb-2"><strong>Endpoint:</strong> <code>/imgai/ocr</code></p>
+        <p class="text-base stylish-text mb-2"><strong>Body Parameters (JSON):</strong></p>
+        <ul class="list-disc list-inside ml-4 text-base stylish-text mb-2">
+          <li><code>code</code> (required, string): Base64-encoded image data.</li>
+          <li><code>mimeType</code> (optional, string): Image MIME type (e.g., "image/jpeg", "image/png"). Default: "image/jpeg".</li>
+        </ul>
+        <p class="text-base stylish-text mb-2"><strong>Example Request:</strong></p>
+        <pre class="code-block"><code>
+curl -X POST "http://104.248.148.11:8000/imgai/ocr" \
+     -H "Content-Type: application/json" \
+     -d '{"code": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "mimeType": "image/png"}'
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Example Response:</strong></p>
+        <pre class="code-block"><code>
+{
+  "success": true,
+  "text": "No visible text found in the image.",
+  "api_owner": "@ISmartCoder",
+  "api_updates": "t.me/TheSmartDev"
+}
+        </code></pre>
+        <p class="text-base stylish-text mb-2"><strong>Note:</strong> The example uses a 1x1 pixel image for brevity. To test with a real image containing text, encode it to base64 using a tool like <code>base64</code> command or an online encoder.</p>
+        <a href="http://104.248.148.11:8000/docs" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 rounded-xl mt-4 stylish-text">
+          <i class="fas fa-play mr-2"></i> Try It (via API Docs)
+        </a>
+      </div>
       <!-- /yt/search Endpoint -->
       <div class="endpoint-card">
         <h3 class="text-2xl font-bold stylish-text mb-4">/yt/search</h3>
@@ -1587,7 +1806,7 @@ header:hover svg path {
   <section class="section-card max-w-5xl mx-auto text-center">
 <h2 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 glow stylish-text">Open Source Contributions</h2>
     <p class="mb-4 sm:mb-6 text-base sm:text-lg stylish-text">A360 API is an open-source project, and contributions are welcome! Fork the repository, submit pull requests, and collaborate with @ISmartCoder to enhance the API. Valid contributions will be merged promptly.</p>
-    <a href="https://github.com/abirxdhack/A360 API" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-xl stylish-text">
+    <a href="https://github.com/abirxdhack/A360API" target="_blank" class="inline-flex items-center btn-glow font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-xl stylish-text">
       <i class="fab fa-github mr-2 text-lg sm:text-xl"></i> Source Code
     </a>
   </section>
