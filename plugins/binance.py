@@ -3,7 +3,6 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 import aiohttp
-import requests
 from utils import LOGGER
 
 router = APIRouter(prefix="/binance")
@@ -14,12 +13,27 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
 
+async def fetch_crypto_data():
+    try:
+        async with aiohttp.ClientSession(headers=HEADERS) as session:
+            async with session.get(BASE_URL_ALL, timeout=10) as response:
+                response.raise_for_status()
+                LOGGER.info("Successfully fetched crypto data from Binance API")
+                return await response.json()
+    except Exception as e:
+        LOGGER.error(f"Failed to fetch crypto data: {str(e)}")
+        raise
+
+def get_top_gainers(data, top_n=100):
+    return sorted(data, key=lambda x: float(x['priceChangePercent']), reverse=True)[:top_n]
+
+def get_top_losers(data, top_n=100):
+    return sorted(data, key=lambda x: float(x['priceChangePercent']))[:top_n]
+
 @router.get("/24h")
 async def get_24h_ticker():
     try:
-        response = requests.get(BASE_URL_ALL, headers=HEADERS, timeout=10)
-        response.raise_for_status()
-        data = response.json()
+        data = await fetch_crypto_data()
         return JSONResponse(
             content={
                 "success": True,
@@ -29,7 +43,7 @@ async def get_24h_ticker():
                 "api_updates": "t.me/TheSmartDev"
             }
         )
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         LOGGER.error(f"Failed to fetch 24h ticker data: {str(e)}")
         return JSONResponse(
             status_code=500,
@@ -53,32 +67,33 @@ async def get_price(token: str = ""):
                 "api_updates": "t.me/TheSmartDev"
             }
         )
-    
     try:
         url = BASE_URL_SYMBOL.format(token=token.upper())
-        response = requests.get(url, headers=HEADERS, timeout=10)
-        response.raise_for_status()
-        data = response.json()
-        if "code" in data and "msg" in data:
-            LOGGER.error(f"Invalid token {token}: {data['msg']}")
-            return JSONResponse(
-                status_code=400,
-                content={
-                    "success": False,
-                    "error": f"Invalid token: {data['msg']}",
-                    "api_owner": "@ISmartCoder",
-                    "api_updates": "t.me/TheSmartDev"
-                }
-            )
-        return JSONResponse(
-            content={
-                "success": True,
-                "data": data,
-                "api_owner": "@ISmartCoder",
-                "api_updates": "t.me/TheSmartDev"
-            }
-        )
-    except requests.exceptions.RequestException as e:
+        async with aiohttp.ClientSession(headers=HEADERS) as session:
+            async with session.get(url, timeout=10) as response:
+                if response.status != 200:
+                    error = await response.json()
+                    error_message = error.get("msg", "Unknown error")
+                    LOGGER.error(f"Invalid token {token}: {error_message}")
+                    return JSONResponse(
+                        status_code=400,
+                        content={
+                            "success": False,
+                            "error": f"Invalid token: {error_message}",
+                            "api_owner": "@ISmartCoder",
+                            "api_updates": "t.me/TheSmartDev"
+                        }
+                    )
+                data = await response.json()
+                return JSONResponse(
+                    content={
+                        "success": True,
+                        "data": data,
+                        "api_owner": "@ISmartCoder",
+                        "api_updates": "t.me/TheSmartDev"
+                    }
+                )
+    except Exception as e:
         LOGGER.error(f"Failed to fetch price for token {token}: {str(e)}")
         return JSONResponse(
             status_code=500,
@@ -125,11 +140,9 @@ async def convert_currency(base: str = "", target: str = "", amount: float = 1.0
                 "api_updates": "t.me/TheSmartDev"
             }
         )
-
     try:
         direct_symbol = base.upper() + target.upper()
         inverse_symbol = target.upper() + base.upper()
-        
         price = await get_spot_price(direct_symbol)
         inverted = False
         if price is None:
@@ -146,17 +159,13 @@ async def convert_currency(base: str = "", target: str = "", amount: float = 1.0
                     }
                 )
             inverted = True
-
         base_usdt_price = await get_spot_price(base.upper() + "USDT") or 0.0
         target_usdt_price = await get_spot_price(target.upper() + "USDT") or 0.0
-
         if inverted:
             converted_amount = amount / price
         else:
             converted_amount = amount * price
-
         total_in_usdt = amount * base_usdt_price
-
         data = {
             "base_coin": base.upper(),
             "target_coin": target.upper(),
@@ -166,7 +175,6 @@ async def convert_currency(base: str = "", target: str = "", amount: float = 1.0
             "base_usdt_price": base_usdt_price,
             "target_usdt_price": target_usdt_price
         }
-
         return JSONResponse(
             content={
                 "success": True,
@@ -182,6 +190,98 @@ async def convert_currency(base: str = "", target: str = "", amount: float = 1.0
             content={
                 "success": False,
                 "error": f"Failed to convert: {str(e)}",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+
+@router.get("/gainers")
+async def get_top_gainers_endpoint(amount: int = 100):
+    if amount <= 0:
+        return JSONResponse(
+            status_code=400,
+            content={
+                "success": False,
+                "error": "Amount must be greater than 0",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    if amount > 1000:
+        return JSONResponse(
+            status_code=400,
+            content={
+                "success": False,
+                "error": "Amount must not exceed 1000",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    try:
+        data = await fetch_crypto_data()
+        top_gainers = get_top_gainers(data, top_n=amount)
+        return JSONResponse(
+            content={
+                "success": True,
+                "data": top_gainers,
+                "count": len(top_gainers),
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    except Exception as e:
+        LOGGER.error(f"Failed to fetch top gainers: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": f"Failed to fetch top gainers: {str(e)}",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+
+@router.get("/losers")
+async def get_top_losers_endpoint(amount: int = 100):
+    if amount <= 0:
+        return JSONResponse(
+            status_code=400,
+            content={
+                "success": False,
+                "error": "Amount must be greater than 0",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    if amount > 1000:
+        return JSONResponse(
+            status_code=400,
+            content={
+                "success": False,
+                "error": "Amount must not exceed 1000",
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    try:
+        data = await fetch_crypto_data()
+        top_losers = get_top_losers(data, top_n=amount)
+        return JSONResponse(
+            content={
+                "success": True,
+                "data": top_losers,
+                "count": len(top_losers),
+                "api_owner": "@ISmartCoder",
+                "api_updates": "t.me/TheSmartDev"
+            }
+        )
+    except Exception as e:
+        LOGGER.error(f"Failed to fetch top losers: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": f"Failed to fetch top losers: {str(e)}",
                 "api_owner": "@ISmartCoder",
                 "api_updates": "t.me/TheSmartDev"
             }
