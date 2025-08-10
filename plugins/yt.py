@@ -5,9 +5,9 @@ import re
 import html
 from collections import OrderedDict
 from utils import LOGGER
+from config import YOUTUBE_API_KEY
 
 router = APIRouter(prefix="/yt")
-YOUTUBE_API_KEY = "AIzaSyClox4nsUjqMT7cqKhaz7asQGeWe5E-1gE"
 YOUTUBE_SEARCH_API_URL = "https://www.googleapis.com/youtube/v3/search"
 YOUTUBE_VIDEOS_API_URL = "https://www.googleapis.com/youtube/v3/videos"
 
