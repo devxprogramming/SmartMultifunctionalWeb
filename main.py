@@ -1,3 +1,6 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
+
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 import os
@@ -5,7 +8,7 @@ import importlib
 import socket
 from utils import LOGGER
 
-app = FastAPI()
+app = FastAPI(title="A360API")
 
 def load_index_html():
     try:
