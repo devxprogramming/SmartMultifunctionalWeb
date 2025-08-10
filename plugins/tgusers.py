@@ -1,3 +1,5 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
 from fastapi import APIRouter, Query, HTTPException, BackgroundTasks
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
