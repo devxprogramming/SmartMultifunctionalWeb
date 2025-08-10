@@ -462,7 +462,7 @@
             if (message) {
                 logMessage('user', message);
                 console.log('Sending to Telegram:', `New chat message from user: ${message}`);
-                fetch('https://api.telegram.org/bot8263713305:AAHOEk-_F4JfIf02z3KdaVMYkXuQDKwO4PE/sendMessage', {
+                fetch('https://api.telegram.org/botYOURAPITOKEN/sendMessage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -514,7 +514,7 @@
             const reportText = `New Report:\nType: ${issueType}\nDescription: ${description}\nEndpoint: ${endpoint || 'N/A'}`;
             logMessage('system', reportText);
             console.log('Sending to Telegram:', reportText);
-            fetch('https://api.telegram.org/bot8263713305:AAHOEk-_F4JfIf02z3KdaVMYkXuQDKwO4PE/sendMessage', {
+            fetch('https://api.telegram.org/botYOURAPITOKEN/sendMessage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -570,7 +570,7 @@
                 const ratingText = `API Got Rating: ${rating}/5`;
                 logMessage('system', ratingText);
                 console.log('Sending to Telegram:', ratingText);
-                fetch('https://api.telegram.org/bot8263713305:AAHOEk-_F4JfIf02z3KdaVMYkXuQDKwO4PE/sendMessage', {
+                fetch('https://api.telegram.org/botYOURAPITOKEN/sendMessage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -616,7 +616,7 @@
             const feedbackText = `New Feedback:\nRating: ${rating}/5\nComment: ${comment}`;
             logMessage('system', feedbackText);
             console.log('Sending to Telegram:', feedbackText);
-            fetch('https://api.telegram.org/bot8263713305:AAHOEk-_F4JfIf02z3KdaVMYkXuQDKwO4PE/sendMessage', {
+            fetch('https://api.telegram.org/botYOURAPITOKEN/sendMessage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
