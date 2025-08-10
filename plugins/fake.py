@@ -1,3 +1,5 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from smartfaker import Faker
