@@ -1,3 +1,5 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import re
