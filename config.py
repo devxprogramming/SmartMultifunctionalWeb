@@ -1,0 +1,8 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
+API_ID = YOUR_API_ID
+API_HASH = "YOUR_API_HASH"
+BOT_TOKEN = "YOUR_BOT_TOKEN"
+TELE_ID = YOUR_API_ID
+TELE_HASH = "YOUR_API_HASH"
+IMGAI_API_KEY = "YOUR_GOOGLE_API_KEY"
