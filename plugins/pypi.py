@@ -1,3 +1,5 @@
+# Copyright @ISmartCoder
+# Updates Channel: https://t.me/TheSmartDev
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 import requests
