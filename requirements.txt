@@ -1,3 +1,5 @@
+brotli
+zstandard
 pyrofork
 tgcrypto
 telethon 
