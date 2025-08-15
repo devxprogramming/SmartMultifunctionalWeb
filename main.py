@@ -17,7 +17,7 @@ start_time = time.time()
 
 def load_index_html():
     try:
-        with open("templates/index.html", "r") as file:
+        with open("templates/index.html", "r", encoding="utf-8") as file:
             return file.read()
     except FileNotFoundError:
         LOGGER.error("index.html not found in templates directory")
@@ -25,7 +25,7 @@ def load_index_html():
 
 def load_report_html():
     try:
-        with open("templates/report.html", "r") as file:
+        with open("templates/report.html", "r", encoding="utf-8") as file:
             return file.read()
     except FileNotFoundError:
         LOGGER.error("report.html not found in templates directory")
@@ -33,7 +33,7 @@ def load_report_html():
 
 def load_health_html():
     try:
-        with open("templates/health.html", "r") as file:
+        with open("templates/health.html", "r", encoding="utf-8") as file:
             return file.read()
     except FileNotFoundError:
         LOGGER.error("health.html not found in templates directory")
